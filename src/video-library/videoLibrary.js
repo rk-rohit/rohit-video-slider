@@ -37,8 +37,7 @@ const VideoCard = ({
         <Player
           playsInline
           poster={poster}
-          src="../assest/trailer_hd.mp4"
-          title="Testing"
+          src={require("../assest/trailer_hd.mp4")}
           alt={alt}
         >
           <BigPlayButton position="center" />
