@@ -23,27 +23,27 @@ class VideoLibrary extends Component {
   slides = [
     {
       key: uuidv4(),
-      content: <VideoCard alt="1" poster="https://i.picsum.photos/id/1024/1920/1280.jpg"/>
+      content: <VideoCard alt="1" videoLink="trailer_hd.mp4" poster="10-2500x1667.jpg"/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="2" poster="https://i.picsum.photos/id/1004/5616/3744.jpg"/>
+      content: <VideoCard alt="2" videoLink="trailer_hd.mp4" poster="1001-5616x3744.jpg"/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="3" poster="https://i.picsum.photos/id/1002/4312/2868.jpg"/>
+      content: <VideoCard alt="3" videoLink="trailer_hd.mp4" poster="1002-4312x2868.jpg"/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="4" poster="https://i.picsum.photos/id/1011/5472/3648.jpg"/>
+      content: <VideoCard alt="4" videoLink="trailer_hd.mp4" poster="1004-5616x3744.jpg"/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="5" poster="https://i.picsum.photos/id/10/2500/1667.jpg"/>
+      content: <VideoCard alt="5" videoLink="trailer_hd.mp4" poster="1011-5472x3648.jpg"/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="6" poster="https://i.picsum.photos/id/1001/5616/3744.jpg"/>
+      content: <VideoCard alt="6" videoLink="trailer_hd.mp4" poster="1024-1920x1280.jpg"/>
     }
   ].map((slide, index) => {
     return { ...slide, onClick: () => this.setState({ goToSlide: index }) };
@@ -58,9 +58,10 @@ class VideoLibrary extends Component {
   nextSlide = (action)=> {
     if (this.state.childFun) {
       this.state.childFun.moveSlide(action)
-      const slideIndex = this.state.childFun && this.state.childFun.getCurrentSlide() + action
+      let slideIndex = this.state.childFun && this.state.childFun.getCurrentSlide() + action
+      slideIndex = slideIndex > this.slides.length-1 ? 0 : (slideIndex < 0 ? this.slides.length-1 : slideIndex)
       this.setState({
-        activeSlide : slideIndex >= this.slides.length ? 0 : slideIndex
+        activeSlide : slideIndex
       })
     }
   }
