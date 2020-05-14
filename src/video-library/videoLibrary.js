@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Carousel from "rohit-react-slider";
 import uuidv4 from "uuid";
 import { config } from "react-spring";
-import "../../node_modules/video-react/dist/video-react.css"
 import leftArrow from "../assest/left-arrow.png"
 import rightArrow from "../assest/right-arrow.png"
 import Pagination from "./pagination";
@@ -23,11 +22,11 @@ class VideoLibrary extends Component {
   slides = [
     {
       key: uuidv4(),
-      content: <VideoCard alt="1" videoLink="trailer_hd.mp4" poster="10-2500x1667.jpg"/>
+      content: <VideoCard alt="1" videoLink="trailer_hd.mp4" poster="10-2500x1667.jpg" posterTitle="See what Leena Barua thinks."/>
     },
     {
       key: uuidv4(),
-      content: <VideoCard alt="2" videoLink="trailer_hd.mp4" poster="1001-5616x3744.jpg"/>
+      content: <VideoCard alt="2" videoLink="trailer_hd.mp4" poster="1001-5616x3744.jpg" posterTitle="See what Mark thinks."/>
     },
     {
       key: uuidv4(),
