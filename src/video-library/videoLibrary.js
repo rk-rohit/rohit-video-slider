@@ -3,50 +3,10 @@ import Carousel from "rohit-react-slider";
 import uuidv4 from "uuid";
 import { config } from "react-spring";
 import "../../node_modules/video-react/dist/video-react.css"
-import { Player, BigPlayButton } from 'video-react';
-
-const Pagination = ({slides, activeSlide, goToSlide}) => {
-  return (
-    <nav aria-label="Page navigation example">
-      <ul className="pagination justify-content-center">
-        {
-          slides && slides.map((item, index)=>{
-            return <li 
-                    className={
-                      index == activeSlide ? "page-item active" : "page-item"
-                    }
-                    onClick={()=>goToSlide(index)}
-                    key={index}
-                  >
-                    <a className="page-link" href="#">{index + 1}</a>
-                  </li>
-          })
-        }
-      </ul>
-    </nav>
-  )
-}
-
-const VideoCard = ({
-  alt,
-  poster
-})=> {
-  return (
-    <div className="card" style={{width: "500px", height: "300px", margin: "0 auto"}}>
-      <div className="card-body">
-        <Player
-          playsInline
-          poster={poster}
-          src={require("../assest/trailer_hd.mp4")}
-          alt={alt}
-        >
-          <BigPlayButton position="center" />
-        </Player>
-      </div>
-    </div>
-  )
-}
-
+import leftArrow from "../assest/left-arrow.png"
+import rightArrow from "../assest/right-arrow.png"
+import Pagination from "./pagination";
+import VideoCard from './VideoCard';
 class VideoLibrary extends Component {
   constructor(props) {
     super(props);
@@ -114,7 +74,9 @@ class VideoLibrary extends Component {
 
   render() {
     return (
-      <div style={{ width: "65%", height: "500px", margin: "0 auto" }}>
+      <div className="video-carousel position-relative">
+        <h1>Create Videos</h1>
+        <p>Select a number</p>
         <Carousel
           slides={this.slides}
           goToSlide={this.state.goToSlide}
@@ -123,8 +85,10 @@ class VideoLibrary extends Component {
           animationConfig={this.state.config}
           onRef={e=>this.setState({childFun: e})}
         />
-        <button onClick={()=>this.nextSlide(-1)}> Prev</button>
-        <button onClick={()=>this.nextSlide(1)}> Next</button>
+        <button onClick={()=>this.nextSlide(-1)} className="prev-btn"> <img src={leftArrow} /></button>
+        <button onClick={()=>this.nextSlide(1)}  className="next-btn"> <img src={rightArrow} /></button>
+        <h1 style={{marginTop: 0}}>Live Classes</h1>
+        <p>Select a number</p>
         <Pagination slides={this.slides} activeSlide={this.state.activeSlide} goToSlide={this.goToSlide}/>
       </div>
     );

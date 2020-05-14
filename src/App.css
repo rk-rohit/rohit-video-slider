@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+body{
+  font-family: 'Open Sans', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  height: 90px !important;
+  z-index: 9 !important;
+  box-shadow: 0 3px 24px 0 rgba(0,0,0,.3) !important;
+  background-color: #fff !important;
 }
+.navbar-nav{
+  align-items: flex-end;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login-btn{
+  background: linear-gradient(to left,#e52f70,#fe8f61);
+    border-radius: 49px;
+    color: #fff !important;
+    padding: 5px 50px 0 !important;
+    height: 38px;
 }
-
-.App-link {
-  color: #61dafb;
+.navbar .nav-link {
+  padding: .5rem 1rem;
+  margin-left: 38px;
+  color: #7d7d7d;
+  font-weight: 500;
+  font-weight: 600;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar .nav-link small{
+  display: block;
+}
+.video-carousel{
+  height: 439px;
+}
+.video-carousel h1{
+  margin-top: 40px;
+  color: #7d7d7d;
+}
+.video-carousel p{
+  margin-top: 25px;
+  color: #7d7d7d;
+}
+.prev-btn{
+  position: absolute;
+  border: none;
+  bottom: 17%;
+  left: -16%;
+  background: transparent;
+  cursor: pointer;
+}
+.prev-btn:focus{
+  outline: none;
+}
+.next-btn{
+  position: absolute;
+  border: none;
+  bottom: 17%;
+  right: -16%;
+  background: transparent;
+  cursor: pointer;
+}
+.next-btn:focus{
+  outline: none;
+}
+.pagination-row{
+  border: 2px solid #7d7d7d;
+  border-radius: 10px;
+  padding: 20px 40px 0;
+  margin-bottom: 40px;
+}
+.pagination-row .page-item .page-link{
+  border: none;
+  font-size: 40px;
+  color: #7d7d7d !important;
+  border-radius: 0;
+  padding: 0px 56px 0;
+}
+.pagination-row .page-item.active .page-link, .pagination-row .page-item.active .page-link:hover {
+  z-index: 1;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid #7d7d7d ;
 }

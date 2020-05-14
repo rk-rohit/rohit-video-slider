@@ -1,16 +1,21 @@
 import React from 'react';
-//import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import VideoLibrary from './video-library/videoLibrary'
+import "./App.css";
+import Header from "./components/header/header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="container-fluid">
-          <VideoLibrary/>
+    <Router>
+      <div className="App">
+        <Header/>
+        <div className="container">
+          <Switch>
+            <Route to="/" component={VideoLibrary}/>
+          </Switch>
         </div>
-      </header>
-    </div>
+      </div>
+    </Router>
   );
 }
 
